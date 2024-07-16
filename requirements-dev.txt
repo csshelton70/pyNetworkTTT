@@ -1,0 +1,7 @@
+-r requirements.txt
+coverage
+pytest
+pytest-cov
+pre-commit
+mypy
+black
