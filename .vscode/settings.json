@@ -4,5 +4,6 @@
     ],
     "python.testing.unittestEnabled": false,
     "python.testing.pytestEnabled": true,
-    "coverage-gutters.coverageReportFileName": "htmlcov/index.html"
+    "coverage-gutters.coverageReportFileName": "htmlcov/index.html",
+    "python.analysis.typeCheckingMode": "basic"
 }
