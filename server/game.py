@@ -16,3 +16,17 @@ class Game:
         """
         result = ["-", "-", "-", "-", "-", "-", "-", "-", "-"]
         return result
+
+    def xy_to_pos(self, x: int, y: int) -> int:
+        """Takes in an x,y value and returns what that position would be in a list
+
+        Args:
+            x (int): x position in grid
+            y (int): y position in grid
+
+        Returns:
+            int: position in list
+        """
+        _p: int = ((y - 1) * 3) + x - 1
+
+        return _p
