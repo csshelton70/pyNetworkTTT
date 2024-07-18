@@ -123,3 +123,83 @@ def test_add_move_location_not_empty(setup_data) -> None:
 
     assert _result[0] == 0
     assert _result[1] == "Location not empty"
+
+
+def test_winner_winner_horizontal_1(setup_data) -> None:
+    _g = setup_data
+    _b = _g.initialize_board()
+
+    _r = [0, 1, 2]
+    for i, p in enumerate(_r):
+        _g._board[p] = "x"
+    assert _g.winner_winner_chicken_dinner() == True
+
+
+def test_winner_winner_horizontal_2(setup_data) -> None:
+    _g = setup_data
+    _b = _g.initialize_board()
+
+    _r = [3, 4, 5]
+    for i, p in enumerate(_r):
+        _g._board[p] = "x"
+    assert _g.winner_winner_chicken_dinner() == True
+
+
+def test_winner_winner_horizontal_3(setup_data) -> None:
+    _g = setup_data
+    _b = _g.initialize_board()
+
+    _r = [6, 7, 8]
+    for i, p in enumerate(_r):
+        _g._board[p] = "x"
+    assert _g.winner_winner_chicken_dinner() == True
+
+
+def test_winner_winner_vertical_1(setup_data) -> None:
+    _g = setup_data
+    _b = _g.initialize_board()
+
+    _r = [0, 3, 6]
+    for i, p in enumerate(_r):
+        _g._board[p] = "x"
+    assert _g.winner_winner_chicken_dinner() == True
+
+
+def test_winner_winner_vertical_2(setup_data) -> None:
+    _g = setup_data
+    _b = _g.initialize_board()
+
+    _r = [1, 4, 7]
+    for i, p in enumerate(_r):
+        _g._board[p] = "x"
+    assert _g.winner_winner_chicken_dinner() == True
+
+
+def test_winner_winner_vertical_3(setup_data) -> None:
+    _g = setup_data
+    _b = _g.initialize_board()
+
+    _r = [2, 5, 8]
+    for i, p in enumerate(_r):
+        _g._board[p] = "x"
+    assert _g.winner_winner_chicken_dinner() == True
+
+
+def test_winner_winner_cross_1(setup_data) -> None:
+    _g = setup_data
+    _b = _g.initialize_board()
+
+    _r = [0, 4, 8]
+    for i, p in enumerate(_r):
+        _g._board[p] = "x"
+    assert _g.winner_winner_chicken_dinner() == True
+
+
+def test_winner_winner_cross_2(setup_data) -> None:
+    _g = setup_data
+    _b = _g.initialize_board()
+
+    _r = [2, 4, 6]
+    for i, p in enumerate(_r):
+        _g._board[p] = "x"
+    assert _g.winner_winner_chicken_dinner() == True

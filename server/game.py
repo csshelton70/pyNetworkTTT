@@ -43,6 +43,9 @@ class Game:
 
         self._board[_pos] = p.xo
 
+        if self.winner_winner_chicken_dinner() == True:
+            return 2, self.board, self._active
+
         return 1, self.board
 
     def choose_starting_player(self) -> int:
@@ -56,3 +59,37 @@ class Game:
             self._player2.active = True
             self._active = 2
         return _r
+
+    def winner_winner_chicken_dinner(self) -> bool:
+        # Horizontal
+        if self._board[0] != "-":
+            # horizontal 1
+            if self._board[0] == self._board[1] == self._board[2]:
+                return True
+            # vertical 1
+            if self._board[0] == self._board[3] == self._board[6]:
+                return True
+            # cross 1
+            if self._board[0] == self._board[4] == self._board[8]:
+                return True
+
+        if self._board[6] != "-":
+            # horizontal 3
+            if self._board[6] == self._board[7] == self._board[8]:
+                return True
+            # cross 2
+            if self._board[2] == self._board[4] and self._board[4] == self._board[6]:
+                return True
+        elif self._board[5] != "-":
+            # horizontal 2
+            if self._board[3] == self._board[4] == self._board[5]:
+                return True
+            # vertical 3
+            if self._board[2] == self._board[5] == self._board[8]:
+                return True
+        elif self._board[1] != "-":
+            # Vertical 2
+            if self._board[1] == self._board[4] == self._board[7]:
+                return True
+
+        return False
