@@ -14,21 +14,27 @@ class Game:
         return
 
     def assign_player_1(self, p1: Player) -> bool:
-        _player1 = p1
+        self._player1 = p1
         return True
 
     def assign_player_2(self, p2: Player) -> bool:
-        _player2 = p2
+        self._player2 = p2
         return True
 
     @property
     def player_count(self) -> int:
         i = 0
-        if self._player1 != None:
-            i += 1
-        if self._player2 != None:
-            i += 1
-        return i
+        try:
+            if self._player1:
+                i += 1
+            if self._player2:
+                i += 1
+        except AttributeError as e:
+            _temp = "x"
+        except Exception as e:
+            print(f"ERROR! {e}")
+        finally:
+            return i
 
     def initialize_board(self) -> list[str]:
         result = ["-", "-", "-", "-", "-", "-", "-", "-", "-"]

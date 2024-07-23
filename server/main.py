@@ -52,7 +52,7 @@ def threaded_client(conn: socket.socket, _player: Player):
             data = conn.recv(4096).decode("utf-8").replace("\r\n", "")
 
             if data:
-                print(f"{_player.number} - {data}")
+                print(f"  INCOMING MESSAGE: {_player.number} - {data}")
 
                 split = data.split(":", 1)
 

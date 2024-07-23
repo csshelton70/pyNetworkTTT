@@ -71,7 +71,7 @@ class Player:
 
     @name.setter
     def name(self, val: str) -> None:
-        print(f"Player {self._number}'s name is now {val}")
+        print(f"    Player {self._number}'s name is now {val}")
         self._name = val
         return
 
