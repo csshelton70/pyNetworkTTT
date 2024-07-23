@@ -1,5 +1,5 @@
 from random import randint
-from .player import Player
+from player import Player
 
 
 class Game:
@@ -9,11 +9,26 @@ class Game:
     _board: list
     _active: int
 
-    def __init__(self, p1: Player, p2: Player) -> None:
-        self._player1 = p1
-        self._player2 = p2
+    def __init__(self) -> None:
         self._board = self.initialize_board()
         return
+
+    def assign_player_1(self, p1: Player) -> bool:
+        _player1 = p1
+        return True
+
+    def assign_player_2(self, p2: Player) -> bool:
+        _player2 = p2
+        return True
+
+    @property
+    def player_count(self) -> int:
+        i = 0
+        if self._player1 != None:
+            i += 1
+        if self._player2 != None:
+            i += 1
+        return i
 
     def initialize_board(self) -> list[str]:
         result = ["-", "-", "-", "-", "-", "-", "-", "-", "-"]

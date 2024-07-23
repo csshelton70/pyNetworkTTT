@@ -2,11 +2,13 @@ class Player:
     _id: str
     _name: str
     _xo: str
+    _number: int
 
-    def __init__(self, id, name):
+    def __init__(self, id, number, name):
         self._active = False
         self._id = id
         self._name = name
+        self._number = number
 
         return
 
@@ -15,6 +17,14 @@ class Player:
     @property
     def id(self) -> str:
         return self._id
+
+    # endregion
+
+    # region property:id
+
+    @property
+    def number(self) -> int:
+        return self._number
 
     # endregion
 
@@ -58,5 +68,11 @@ class Player:
     @property
     def name(self) -> str:
         return self._name
+
+    @name.setter
+    def name(self, val: str) -> None:
+        print(f"Player {self._number}'s name is now {val}")
+        self._name = val
+        return
 
     # endregion
