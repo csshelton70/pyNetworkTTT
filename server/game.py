@@ -22,6 +22,23 @@ class Game:
         return True
 
     @property
+    def is_ready(self) -> bool:
+        try:
+            if self._player1:
+                if self._player2:
+                    return True
+                else:
+                    return False
+            else:
+                return False
+        except AttributeError as e:
+            return False
+        except Exception as e:
+            print(f"ERROR! {e}")
+
+        return True
+
+    @property
     def player_count(self) -> int:
         i = 0
         try:

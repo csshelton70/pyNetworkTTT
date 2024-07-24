@@ -7,7 +7,7 @@ _name = "james t kirk"
 
 @pytest.fixture
 def setup_data():
-    _p = Player(_id, _name)
+    _p = Player(_id, 1, _name)
     yield _p
 
 
@@ -71,10 +71,10 @@ def test_set_xo_error(setup_data) -> None:
         _p.xo = "0"
 
 
-def test_set_name_error(setup_data) -> None:
+def test_set_name(setup_data) -> None:
     _p = setup_data
-    with pytest.raises(AttributeError) as e_info:
-        _p.name = "fred"
+    _p.name = "fred"
+    assert _p.name == "fred"
 
 
 def test_get_name(setup_data) -> None:

@@ -1,23 +1,24 @@
 import pytest
 import uuid
-from server.main import add
 from server.game import *
 from server.player import Player
 
-p1 = Player("ASdfasdf", "player1")
-p2 = Player("edfvw4", "player2")
+p1 = Player("ASdfasdf", 1, "player1")
+p2 = Player("edfvw4", 2, "player2")
 
 
 @pytest.fixture
 def setup_data():
 
-    _game = Game(p1, p2)
+    _game = Game()
 
     yield _game
 
 
 def test_full_game(setup_data) -> None:
     _g = setup_data
+    _g.assign_player_1(p1)
+    _g.assign_player_2(p2)
     _g._player1.xo = "x"
     _g._player2.xo = "o"
 

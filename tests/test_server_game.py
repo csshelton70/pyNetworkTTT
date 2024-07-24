@@ -1,22 +1,18 @@
 import pytest
 import uuid
-from server.main import add
 from server.game import *
 from server.player import Player
 
-p1 = Player(uuid.uuid4(), "player1")
-p2 = Player(uuid.uuid4(), "player2")
-
-
-def test_add():
-    res = add(4, 5)
-    assert res == 9
+p1 = Player(uuid.uuid4(), 1, "player1")
+p2 = Player(uuid.uuid4(), 2, "player2")
 
 
 @pytest.fixture
 def setup_data():
 
-    _game = Game(p1, p2)
+    _game = Game()
+    _game.assign_player_1(p1)
+    _game.assign_player_2(p2)
 
     yield _game
 
